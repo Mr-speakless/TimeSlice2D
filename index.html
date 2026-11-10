@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="dark">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -7,57 +7,7 @@
     <title>Time Slice</title>
   </head>
   <body>
-    <div id="app">
-      <div id="stage">
-        <canvas id="gl"></canvas>
-        <div class="hud tl">TIME SLICE / <span id="hudMode">SOURCE VOLUME</span></div>
-        <div class="hud bl" id="hint">drag · orbit &nbsp; scroll · zoom &nbsp; double-click slice · focus</div>
-        <button id="back" class="hidden">← back to volume</button>
-        <div id="loader"><div id="loaderText">Sampling frames…</div><div class="bar"><i id="loaderBar"></i></div></div>
-      </div>
-
-      <aside id="panel">
-        <h1>Slice plane</h1>
-
-        <div class="group">
-          <div class="row"><label for="az">Azimuth</label><span class="num"><input id="azNum" type="number" min="-180" max="180" step="0.1" />°</span></div>
-          <input id="az" type="range" min="-180" max="180" step="0.5" value="0" />
-          <div class="row"><label for="el">Elevation</label><span class="num"><input id="elNum" type="number" min="-90" max="90" step="0.1" />°</span></div>
-          <input id="el" type="range" min="-90" max="90" step="0.5" value="0" />
-          <div class="row"><label for="pos">Position on normal</label><span class="num"><input id="posNum" type="number" min="-0.99" max="0.99" step="0.001" /></span></div>
-          <input id="pos" type="range" min="-0.99" max="0.99" step="0.001" value="0" />
-          <div class="readout">n = <span id="nOut"></span></div>
-        </div>
-
-        <button id="reset" class="wide">↺ Reset slice</button>
-
-        <h2>Presets</h2>
-        <div class="presets">
-          <button data-az="0" data-el="0">Frame <small>XY</small></button>
-          <button data-az="90" data-el="0">Side <small>YT</small></button>
-          <button data-az="0" data-el="90">Top <small>XT</small></button>
-          <button data-az="35" data-el="25">Diagonal</button>
-        </div>
-
-        <h2>Display</h2>
-        <div class="group">
-          <div class="playrow">
-            <button id="play">▶ Play</button>
-            <select id="mode"><option value="loop">Loop</option><option value="pingpong">Ping-pong</option></select>
-          </div>
-          <div class="row"><label for="speed">Play speed</label><output id="speedOut"></output></div>
-          <input id="speed" type="range" min="0.1" max="3" step="0.05" value="1" />
-          <div class="row"><label for="frames">Stack frames</label><output id="framesOut"></output></div>
-          <input id="frames" type="range" min="4" max="120" step="1" value="26" />
-          <div class="row"><label for="stack">Frame stack opacity</label><output id="stackOut"></output></div>
-          <input id="stack" type="range" min="0" max="1" step="0.01" value="0.18" />
-        </div>
-
-        <h2>Source</h2>
-        <label class="file">Load another video<input id="file" type="file" accept="video/*" /></label>
-        <div class="readout" id="info"></div>
-      </aside>
-    </div>
-    <script type="module" src="/src/main.js"></script>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
